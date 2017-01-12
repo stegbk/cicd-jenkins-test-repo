@@ -1,5 +1,4 @@
 import jenkins
-import wget
 import sys
 
 jenkins_url = 'http://jenkins-loop.internal.elasticbox.com:8080'
