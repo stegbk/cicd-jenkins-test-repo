@@ -1,12 +1,13 @@
 import jenkins
 import wget
+import sys
 
 jenkins_url = 'http://jenkins-loop.internal.elasticbox.com:8080'
 job_name = 'TestJenkinsBuild'
 server = jenkins.Jenkins(jenkins_url, username='s@elasticbox.com', password='7d8e01a409b086ce29134fa1b3ed39ba')
 next_build_number = server.get_job_info(job_name)['nextBuildNumber']
 server.build_job(job_name)
-
+print(next_build_number)
 found = False
 finished = False
 iteration = 0
@@ -22,6 +23,12 @@ while finished == False and iteration < 100:
             found = True
         elif found == True and finished == False:
             finished = True
-url = jenkins_url+'/job/'+job_name+'/lastSuccessfulBuild/artifact/PrintCompileTimeNumber/dist/PrintCompileTimeNumber.jar'
-filename = wget.download(url)
+
+
+if finished != True:
+    sys.exit(1)
+else:
+    sys.exit(0)
+#url = jenkins_url+'/job/'+job_name+'/lastSuccessfulBuild/artifact/PrintCompileTimeNumber/dist/PrintCompileTimeNumber.jar'
+#filename = wget.download(url)
 
