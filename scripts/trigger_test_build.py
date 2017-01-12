@@ -25,7 +25,6 @@ while finished == False and iteration < 100:
         elif found == True and finished == False:
             finished = True
 
-print(finished)
 if finished != True:
     sys.exit(1)
 else:
