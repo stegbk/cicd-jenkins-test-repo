@@ -1,5 +1,6 @@
 import jenkins
 import sys
+import time
 
 jenkins_url = 'http://jenkins-loop.internal.elasticbox.com:8080'
 job_name = 'TestJenkinsBuild'
@@ -14,6 +15,7 @@ iteration = 0
 
 while finished == False and iteration < 100:
     iteration = iteration + 1
+    time.sleep(0.5)
     builds = server.get_running_builds()
     if found == True and len(builds) == 0:
         finished = True
