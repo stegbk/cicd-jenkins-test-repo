@@ -23,11 +23,14 @@ while finished == False and iteration < 100:
         elif found == True and finished == False:
             finished = True
 
-
+print(finished)
 if finished != True:
     sys.exit(1)
 else:
     sys.exit(0)
-#url = jenkins_url+'/job/'+job_name+'/lastSuccessfulBuild/artifact/PrintCompileTimeNumber/dist/PrintCompileTimeNumber.jar'
+
+
+
+    #url = jenkins_url+'/job/'+job_name+'/lastSuccessfulBuild/artifact/PrintCompileTimeNumber/dist/PrintCompileTimeNumber.jar'
 #filename = wget.download(url)
 
