@@ -2,7 +2,7 @@ import jenkins
 import sys
 import time
 
-jenkins_url = 'http://jenkins-loop.internal.elasticbox.com:8080'
+jenkins_url = 'http://localhost:8080'
 job_name = 'TestJenkinsBuild'
 server = jenkins.Jenkins(jenkins_url, username='s@elasticbox.com', password='7d8e01a409b086ce29134fa1b3ed39ba')
 next_build_number = server.get_job_info(job_name)['nextBuildNumber']
@@ -68,7 +68,6 @@ if finished != True:
     sys.exit(1)
 else:
     sys.exit(0)
-
 
 
 
